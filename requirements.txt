@@ -1,6 +1,6 @@
-fastapi[standard] # framework(engine)
+fastapi[standard]==0.135.2 # framework(engine)
 psycopg2-binary==2.9.11 # PostgreSQL for linux
 PyJWT==2.10.1 # auth
 SQLAlchemy==2.0.45 # ORM
-passlib[argon2] # encryption
+passlib[argon2]==1.7.4 # encryption
 slowapi==0.1.9 # rate limit request
