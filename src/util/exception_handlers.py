@@ -12,6 +12,7 @@ async def http_code_429(request: Request, exc: RateLimitExceeded):
     if "text/html" in accept:
         # token = request.cookies.get("x-access-token")
         return templates.TemplateResponse(
+            request=request,
             name="pages/error.html",
             context={
                 "request": request,
@@ -27,9 +28,9 @@ async def http_code_429(request: Request, exc: RateLimitExceeded):
 async def http_code_500(request: Request, exc: Exception):
     print(f"\nError 500: {exc}\n")
     return templates.TemplateResponse(
+        request=request,
         name="pages/error.html",
         context={
-            "request": request,
             "err": {"code": 500, "msg": "Internal Server Error"}
         },
         status_code=500
@@ -39,6 +40,7 @@ async def http_code_500(request: Request, exc: Exception):
 async def http_code_404(request: Request, exc: Exception = None):
     print(f"\nError {exc}\n")
     return templates.TemplateResponse(
+        request=request,
         name="pages/error.html",
         context={
             "request": request,

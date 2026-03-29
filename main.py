@@ -5,7 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from src.api.routes import routes as routes_api
 from src.configs import DIR_STATIC
-# from src.controller.routes import routes as routes_controller
+from src.controller.routes import routes as routes_controller
 from src.util.exception_handlers import (http_code_404, http_code_429,
                                          http_code_500)
 from src.util.rate_limiter import limiter
@@ -34,8 +34,8 @@ app.add_middleware(
 app.state.limiter = limiter  # slowapi
 
 # === Routes ===
-# for route in routes_controller:
-#     app.include_router(route)
+for route in routes_controller:
+    app.include_router(route)
 for route in routes_api:
     app.include_router(route)
 
