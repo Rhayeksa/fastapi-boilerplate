@@ -25,8 +25,10 @@ async def http_code_429(request: Request, exc: RateLimitExceeded):
     return response(code=429, message="Too many requests, please try again later.")
 
 
-async def http_code_500(request: Request, exc: Exception):
-    print(f"\nError 500: {exc}\n")
+async def http_code_500(request: Request, exc: Exception, module: str = None):
+    print(f"\nError 500")
+    print(f"Module: {module if module else ""}")
+    print(f"Detail:{exc}\n")
     return templates.TemplateResponse(
         request=request,
         name="pages/error.html",

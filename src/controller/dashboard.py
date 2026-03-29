@@ -29,9 +29,9 @@ async def f(request: Request):
                 # "pasien": pasien,
                 # "menu": await menu(token=token),
             },
-            name="pages/index.html",
+            name="pages/dashboard.html",
         )
     except Exception as e:
-        return await http_code_500(request, e)
+        return await http_code_500(request=request, exc=e, module="dashboard GET")
     finally:
         session.close()
