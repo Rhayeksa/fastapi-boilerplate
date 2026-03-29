@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block apps %} {% include "components/navbar.html"%}
+<div class="container pt-4">
+  <div class="row">
+    <div class="col fst-italic">
+      <span class="h2">User</span>
+    </div>
+    <div class="col text-end">
+      <a href="/user/add" class="btn btn-primary">
+        <i class="fa-solid fa-file-medical me-2"></i>Tambah
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+{% endblock %}
